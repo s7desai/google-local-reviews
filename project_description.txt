@@ -1,0 +1,19 @@
+
+Project Description: Rating prediction based on KNN fused Latent Feature Model. (KLFM)
+
+Data Description and Usage.
+
+Training data: 1. Used for training latent factor model (LFM) and KLFM
+
+Valid data:  (user, place) pair ----> to predict the rating by calculating the MSE 
+		fine tuning model based on this data
+
+Test data: (user, place) —-> predict rating
+
+
+Pipeline:
+We would be training two models.
+1. Basic latent factor model (alpha + beta U + beta I + gamma U * gamma I)
+2. KNN fused latent factor model (alpha + beta U + beta I + (gamma I  + distance metric) * gamma U)
+
+Distance metric = 1/|set of neighbours| * sum(d) where d is the parameter. 
